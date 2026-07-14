@@ -21,7 +21,7 @@ export default async function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-blush-100 via-cream-50 to-background dark:from-secondary/40 dark:via-background dark:to-background">
         <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-blush-200/40 blur-3xl" />
         <div className="absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
-        <div className="container grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
+        <div className="container grid items-start gap-10 py-10 md:grid-cols-2 md:py-14">
           <Reveal>
             <span className="inline-flex items-center gap-1 rounded-full border border-white/40 bg-white/50 px-3 py-1 text-xs font-medium text-primary backdrop-blur dark:bg-white/5">
               <Sparkles className="h-3 w-3" /> New Collection 2026
