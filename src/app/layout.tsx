@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   description:
     'Discover luxury cosmetics, skincare and beauty essentials at Lumière Beauty. Premium cosmetics shop management system.',
   keywords: ['cosmetics', 'beauty', 'skincare', 'Ghana', 'makeup', 'shop'],
+  icons: { icon: '/favicon.svg' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
