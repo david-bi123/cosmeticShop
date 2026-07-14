@@ -3,7 +3,13 @@ import { getToken, isAdminRole } from '@/lib/auth';
 import { AdminSidebar } from '@/components/shared/admin-sidebar';
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const payload = await getToken();
+  let payload;
+  try {
+    payload = await getToken();
+  } catch (e) {
+    console.error('[ADMIN_LAYOUT] getToken failed:', e instanceof Error ? e.message : String(e), e instanceof Error ? e.stack : '');
+    redirect('/login?redirect=/admin');
+  }
   if (!payload) redirect('/login?redirect=/admin');
   if (!isAdminRole(payload.role) && payload.role !== 'staff') redirect('/account');
   return (
