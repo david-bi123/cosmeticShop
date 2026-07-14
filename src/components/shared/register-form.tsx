@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Mail, Lock, User, Phone, Loader2 } from 'lucide-react';
+import { Mail, Lock, User, Phone, Loader2, Eye, EyeOff } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 export function RegisterForm() {
   const router = useRouter();
   const [busy, setBusy] = React.useState(false);
+  const [show, setShow] = React.useState(false);
 
   const submit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,7 +42,13 @@ export function RegisterForm() {
       </div>
       <div>
         <Label htmlFor="password">Password</Label>
-        <div className="relative mt-1"><Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" /><Input id="password" name="password" type="password" required placeholder="••••••••" className="pl-9" /></div>
+        <div className="relative mt-1">
+          <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input id="password" name="password" type={show ? 'text' : 'password'} required placeholder="••••••••" className="pl-9 pr-10" />
+          <button type="button" onClick={() => setShow((s) => !s)} aria-label={show ? 'Hide password' : 'Show password'} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground transition hover:text-foreground">
+            {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+          </button>
+        </div>
       </div>
       <Button type="submit" disabled={busy} size="lg" className="w-full rounded-full">
         {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : 'Create Account'}
