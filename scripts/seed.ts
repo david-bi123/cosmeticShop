@@ -40,7 +40,7 @@ const IMAGES = [
   'https://images.unsplash.com/photo-1631730486572-226d1f595b68?w=600&q=80',
   'https://images.unsplash.com/photo-1629198688000-71f23e745b6e?w=600&q=80',
   'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600&q=80',
-  'https://images.unsplash.com/photo-1598440947619-2c35fc9aa938?w=600&q=80',
+  'https://picsum.photos/seed/lumiere-cosmetics/800/800',
   'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=600&q=80',
 ];
 
