@@ -22,7 +22,7 @@ export default async function HomePage() {
         <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-blush-200/40 blur-3xl" />
         <div className="absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
         <div className="container grid items-start gap-8 py-8 md:grid-cols-2 md:gap-10 md:py-12">
-          <Reveal>
+          <Reveal className="pt-6 md:pt-16">
             <span className="inline-flex items-center gap-1 rounded-full border border-white/40 bg-white/50 px-3 py-1 text-xs font-medium text-primary backdrop-blur dark:bg-white/5">
               <Sparkles className="h-3 w-3" /> New Collection 2026
             </span>
