@@ -18,10 +18,10 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col">
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blush-100 via-cream-50 to-background dark:from-secondary/40 dark:via-background dark:to-background">
+      <section className="relative max-h-[calc(100svh-4rem)] overflow-hidden bg-gradient-to-b from-blush-100 via-cream-50 to-background dark:from-secondary/40 dark:via-background dark:to-background">
         <div className="absolute -right-20 -top-20 h-96 w-96 rounded-full bg-blush-200/40 blur-3xl" />
         <div className="absolute -left-20 bottom-0 h-96 w-96 rounded-full bg-gold/20 blur-3xl" />
-        <div className="container grid items-start gap-10 py-10 md:grid-cols-2 md:py-14">
+        <div className="container grid items-start gap-8 py-8 md:grid-cols-2 md:gap-10 md:py-12">
           <Reveal>
             <span className="inline-flex items-center gap-1 rounded-full border border-white/40 bg-white/50 px-3 py-1 text-xs font-medium text-primary backdrop-blur dark:bg-white/5">
               <Sparkles className="h-3 w-3" /> New Collection 2026
@@ -42,7 +42,7 @@ export default async function HomePage() {
             </div>
           </Reveal>
           <Reveal delay={0.2} className="relative">
-            <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-white/40 shadow-luxe">
+            <div className="relative mx-auto aspect-[4/5] max-h-[58vh] w-full max-w-xs overflow-hidden rounded-[2rem] border border-white/40 shadow-luxe md:max-w-sm">
               <Image src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&q=80" alt="Luxury cosmetics" fill priority className="object-cover" sizes="(max-width:768px) 100vw, 400px" />
             </div>
             <div className="absolute -bottom-5 -left-5 hidden rounded-2xl border border-white/40 bg-white/70 p-4 shadow-glass backdrop-blur-xl dark:bg-white/10 sm:block">
