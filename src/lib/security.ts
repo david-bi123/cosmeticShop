@@ -5,21 +5,27 @@ export async function checkOrigin(): Promise<boolean> {
   const origin = h.get('origin');
   const host = h.get('host');
   if (!host) return false;
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, '');
-  if (appUrl) {
+  // Standard same-origin check (works on any host, including Vercel/preview).
+  if (origin) {
     try {
-      return new URL(appUrl).host === host;
+      if (new URL(origin).host === host) return true;
     } catch {
       /* fall through */
     }
+  } else {
+    // No Origin header (e.g. same-origin navigations, some clients): allow.
+    return true;
   }
-  // In dev origin may be null; allow same-host
-  if (!origin) return true;
-  try {
-    return new URL(origin).host === host;
-  } catch {
-    return false;
+  // Allow an explicitly configured app URL as an additional trusted origin.
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, '');
+  if (appUrl) {
+    try {
+      if (new URL(appUrl).host === host) return true;
+    } catch {
+      /* ignore */
+    }
   }
+  return false;
 }
 
 const buckets = new Map<string, { count: number; reset: number }>();
