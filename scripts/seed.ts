@@ -66,7 +66,7 @@ const skuGen = (p: string, n: number) => `${p}-${String(n).padStart(4, '0')}`;
 async function main() {
   const uri = process.env.MONGODB_URI;
   if (!uri) { console.error('MONGODB_URI not set'); process.exit(1); }
-  await mongoose.connect(uri, { dbName: 'cosmetic-shop' });
+  await mongoose.connect(uri);
   console.log('Connected to MongoDB');
 
   // clean
