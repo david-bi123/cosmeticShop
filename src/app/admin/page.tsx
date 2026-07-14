@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { DollarSign, ShoppingCart, Users, Package, AlertTriangle, TrendingUp } from 'lucide-react';
+import { AlertTriangle } from 'lucide-react';
 import { getDashboardMetrics } from '@/actions/admin-stats';
 import { StatCard } from '@/components/admin/stat-card';
 import { RevenueChart, BarChartMini } from '@/components/admin/revenue-chart';
@@ -27,17 +27,17 @@ export default async function AdminDashboard() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard label="Daily Revenue" value={formatPrice(m.revenue.daily)} sub="Today" icon={DollarSign} accent="bg-blush-300" delay={0} />
-        <StatCard label="Weekly Revenue" value={formatPrice(m.revenue.weekly)} sub="Last 7 days" icon={TrendingUp} accent="bg-gold" delay={0.05} />
-        <StatCard label="Monthly Revenue" value={formatPrice(m.revenue.monthly)} sub="Last 30 days" icon={TrendingUp} accent="bg-blush-400" delay={0.1} />
-        <StatCard label="Lifetime Revenue" value={formatPrice(m.revenue.lifetime)} sub="All time" icon={DollarSign} accent="bg-primary" delay={0.15} />
+        <StatCard label="Daily Revenue" value={formatPrice(m.revenue.daily)} sub="Today" icon="DollarSign" accent="bg-blush-300" delay={0} />
+        <StatCard label="Weekly Revenue" value={formatPrice(m.revenue.weekly)} sub="Last 7 days" icon="TrendingUp" accent="bg-gold" delay={0.05} />
+        <StatCard label="Monthly Revenue" value={formatPrice(m.revenue.monthly)} sub="Last 30 days" icon="TrendingUp" accent="bg-blush-400" delay={0.1} />
+        <StatCard label="Lifetime Revenue" value={formatPrice(m.revenue.lifetime)} sub="All time" icon="DollarSign" accent="bg-primary" delay={0.15} />
       </div>
 
       <div className="grid gap-4 lg:grid-cols-4">
-        <StatCard label="Total Orders" value={String(m.counts.totalOrders)} icon={ShoppingCart} delay={0.2} />
-        <StatCard label="Pending Orders" value={String(m.counts.pendingOrders)} icon={ShoppingCart} accent="bg-amber-300" delay={0.25} />
-        <StatCard label="Customers" value={String(m.counts.totalCustomers)} icon={Users} delay={0.3} />
-        <StatCard label="Low / Out Stock" value={`${m.counts.lowStock} / ${m.counts.outOfStock}`} icon={AlertTriangle} accent="bg-rose-300" delay={0.35} />
+        <StatCard label="Total Orders" value={String(m.counts.totalOrders)} icon="ShoppingCart" delay={0.2} />
+        <StatCard label="Pending Orders" value={String(m.counts.pendingOrders)} icon="ShoppingCart" accent="bg-amber-300" delay={0.25} />
+        <StatCard label="Customers" value={String(m.counts.totalCustomers)} icon="Users" delay={0.3} />
+        <StatCard label="Low / Out Stock" value={`${m.counts.lowStock} / ${m.counts.outOfStock}`} icon="AlertTriangle" accent="bg-rose-300" delay={0.35} />
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">

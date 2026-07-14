@@ -2,8 +2,14 @@
 import { motion } from 'framer-motion';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { DollarSign, ShoppingCart, Users, Package, AlertTriangle, TrendingUp } from 'lucide-react';
 
-export function StatCard({ label, value, sub, icon: Icon, accent, delay = 0 }: { label: string; value: string; sub?: string; icon: any; accent?: string; delay?: number }) {
+const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  DollarSign, ShoppingCart, Users, Package, AlertTriangle, TrendingUp,
+};
+
+export function StatCard({ label, value, sub, icon, accent, delay = 0 }: { label: string; value: string; sub?: string; icon: string; accent?: string; delay?: number }) {
+  const Icon = ICONS[icon];
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay }}>
       <Card className="relative overflow-hidden p-5">
@@ -14,7 +20,9 @@ export function StatCard({ label, value, sub, icon: Icon, accent, delay = 0 }: {
             <p className="mt-1 text-2xl font-bold">{value}</p>
             {sub && <p className="mt-1 text-xs text-muted-foreground">{sub}</p>}
           </div>
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-gold-dark dark:text-gold-light"><Icon className="h-5 w-5" /></div>
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/15 text-gold-dark dark:text-gold-light">
+            {Icon && <Icon className="h-5 w-5" />}
+          </div>
         </div>
       </Card>
     </motion.div>
